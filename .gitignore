@@ -1,0 +1,16 @@
+# .env
+.env.*
+
+# compiled output
+dist
+build
+node_modules
+*.map
+
+# Logs
+logs
+*.log
+pnpm-debug.log*
+
+# OS
+.DS_Store

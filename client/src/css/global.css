@@ -1,0 +1,45 @@
+:root {
+  --colors-olive:  #8b8d7d;
+
+  --colors-green: #30BF6E;
+  --colors-green2: #0BBF59;
+  --colors-green-shade: #1F8C4E;
+
+  --colors-black: #1d1d1d;
+  --colors-light-gray: #f2f2f2;
+
+  --colors-mint: #89D9AB;
+
+  --grid-item-width: 24vw;  
+  --grid-item-min-width: 300px;  
+  --grid-item-max-width: 500px;  
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	font-family: "Verlag A", "Verlag B";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	color: var(--colors-black);
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  padding: 2rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header' 60px
+    'sidebar main' 1fr
+    'footer footer' 40px/1fr 3fr;
+}

@@ -1,5 +1,5 @@
 <nav>
-  <a>Login</a>
+  <a href="/signin">Login</a>
 </nav>
 
 <style>

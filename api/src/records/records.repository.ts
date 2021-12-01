@@ -7,10 +7,10 @@ import { Record } from './record.entity';
 @EntityRepository(Record)
 export class RecordsRepository extends Repository<Record> {
 
-  async getRecords(filterDto: GetRecordFilterDto, user: User): Promise<Record[]> {
+  async getRecords(filterDto: GetRecordFilterDto): Promise<Record[]> {
     const { search } = filterDto;
     const query = this.createQueryBuilder('record');
-    query.where({user});
+    // query.where({user});
 
     if (search) {
       query.andWhere('(LOWER(record.title) LIKE LOWER(:search) OR LOWER(record.source) LIKE LOWER(:search))', {search: `%${search}%`})

@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script>
-  import Nav from "./../components/nav.svelte";
+  import Header from "./../lib/header.svelte";
 </script>
 
 <style>
@@ -11,7 +11,7 @@
 </style>
 
 <main>
-  <Nav />
+  <Header />
   <slot></slot>
 </main>
 

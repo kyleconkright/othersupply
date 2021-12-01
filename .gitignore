@@ -4,6 +4,7 @@
 # compiled output
 dist
 build
+database
 node_modules
 *.map
 

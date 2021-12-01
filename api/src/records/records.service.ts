@@ -13,8 +13,8 @@ export class RecordsService {
     private recordsRepository: RecordsRepository
   ) { }
 
-  async getRecords(filterDto: GetRecordFilterDto, user: User): Promise<Record[]> {
-    return await this.recordsRepository.getRecords(filterDto, user);
+  async getRecords(filterDto: GetRecordFilterDto): Promise<Record[]> {
+    return await this.recordsRepository.getRecords(filterDto);
   }
 
   async getRecord(id: string, user: User): Promise<Record> {

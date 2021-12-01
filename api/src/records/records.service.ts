@@ -1,10 +1,10 @@
-import { User } from './../auth/user.entity';
 import { Record } from './record.entity';
 import { RecordsRepository } from './records.repository';
 import { GetRecordFilterDto } from './dto/get-record-filter.dto';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/users/user.entity';
 
 @Injectable()
 export class RecordsService {

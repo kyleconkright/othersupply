@@ -1,4 +1,3 @@
-import { User } from './../auth/user.entity';
 import { GetRecordFilterDto } from './dto/get-record-filter.dto';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
@@ -7,6 +6,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestj
 import { RecordsService } from './records.service';
 import { UpdateRecordDto } from './dto/update-record.dto';
 import { Record } from './record.entity';
+import { User } from 'src/users/user.entity';
 import { GetUser } from 'src/auth/get-user.decorator';
 
 @Controller('records')

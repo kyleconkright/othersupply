@@ -1,0 +1,159 @@
+{
+  "projectType": "application",
+  "root": "apps/other.supply",
+  "sourceRoot": "apps/other.supply/src",
+  "prefix": "web",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/other.supply/browser",
+        "index": "apps/other.supply/src/index.html",
+        "main": "apps/other.supply/src/main.ts",
+        "polyfills": "apps/other.supply/src/polyfills.ts",
+        "tsConfig": "apps/other.supply/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/other.supply/src/favicon.ico",
+          "apps/other.supply/src/assets"
+        ],
+        "styles": [
+          "apps/other.supply/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/other.supply/src/environments/environment.ts",
+              "with": "apps/other.supply/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "other.supply:build:production"
+        },
+        "development": {
+          "browserTarget": "other.supply:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "other.supply:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/other.supply/src/**/*.ts",
+          "apps/other.supply/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/other.supply"
+      ],
+      "options": {
+        "jestConfig": "apps/other.supply/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/other.supply/server",
+        "main": "apps/other.supply/server.ts",
+        "tsConfig": "apps/other.supply/tsconfig.server.json",
+        "inlineStyleLanguage": "scss"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/other.supply/src/environments/environment.ts",
+              "with": "apps/other.supply/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "other.supply:build:development",
+          "serverTarget": "other.supply:server:development"
+        },
+        "production": {
+          "browserTarget": "other.supply:build:production",
+          "serverTarget": "other.supply:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "prerender": {
+      "executor": "@nguniversal/builders:prerender",
+      "options": {
+        "routes": [
+          "/"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "other.supply:build:production",
+          "serverTarget": "other.supply:server:production"
+        },
+        "development": {
+          "browserTarget": "other.supply:build:development",
+          "serverTarget": "other.supply:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  },
+  "tags": []
+}

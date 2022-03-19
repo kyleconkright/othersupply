@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RecordsController } from './records.controller';
 import { RecordsService } from './records.service';
+import { RecordsResolver } from './records.resolver';
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { RecordsService } from './records.service';
     AuthModule
   ],
   controllers: [RecordsController],
-  providers: [RecordsService]
+  providers: [RecordsResolver, RecordsService]
 })
 export class RecordsModule {}

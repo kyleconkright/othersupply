@@ -1,0 +1,81 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""discogs"""
+type Discogs {
+  id: ID!
+  user: User!
+  discogs_id: String!
+  discogs_username: String!
+  discogs_oauth_token: String!
+  discogs_oauth_token_secret: String!
+  discogs_resource_url: String!
+}
+
+"""user"""
+type User {
+  id: ID!
+  username: String!
+  password: String!
+  records: [Record!]!
+  discogs: Discogs!
+}
+
+"""record"""
+type Record {
+  id: ID!
+  discogs_id: String!
+  artist: String!
+  title: String!
+  source: String!
+  image_src: String!
+  url: String!
+  price: Float!
+  users: [User!]!
+}
+
+type Query {
+  user(id: String!): User!
+  records: [Record!]!
+  syncWantList: [Record!]!
+  record(id: String!): Record!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createRecord(createRecordInput: CreateRecordInput!): Record!
+  addToWantList(id: String!): Record!
+  updateRecord(updateRecordInput: UpdateRecordInput!): Record!
+  removeRecord(id: String!): Record!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  username: String
+  password: String
+  id: Int!
+}
+
+input CreateRecordInput {
+  title: String!
+  source: String!
+  image_src: String!
+  url: String!
+  price: Float
+}
+
+input UpdateRecordInput {
+  title: String
+  source: String
+  image_src: String
+  url: String
+  price: Float
+  id: ID!
+}

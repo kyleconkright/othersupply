@@ -22,13 +22,13 @@ export class RecordsController {
     return this.recordsService.getRecords(filterDto);
   }
   
-  @Get('/:id')
-  getRecord(
-    @Param('id') id: string,
-    @GetUser() user: User
-  ): Promise<Record> {
-    return this.recordsService.getRecord(id, user)
-  }
+  // @Get('/:id')
+  // getRecord(
+  //   @Param('id') id: string,
+  //   @GetUser() user: User
+  // ): Promise<Record> {
+  //   return this.recordsService.getRecord(id, user)
+  // }
  
   @Delete('/:id')
   deleteRecord(

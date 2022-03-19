@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""record"""
+type Record {
+  id: ID!
+  title: String!
+  source: String!
+  image_src: String!
+  url: String!
+  user: User!
+}
+
+"""user"""
+type User {
+  id: ID!
+  username: String!
+  password: String!
+  records: [Record!]!
+}
+
+"""signUpResult"""
+type SignUpResult {
+  id: ID!
+  username: String!
+  password: String!
+  records: [Record!]!
+  accessToken: String!
+}
+
+"""signInResult"""
+type SignInResult {
+  id: ID!
+  username: String!
+  password: String!
+  records: [Record!]!
+  accessToken: String!
+}
+
+type Query {
+  user(username: String): User!
+  records: [Record!]!
+  record(id: String!): Record!
+}
+
+type Mutation {
+  signIn(password: String!, username: String!): SignInResult!
+  signUp(password: String!, username: String!): SignUpResult!
+}

@@ -1,7 +1,6 @@
-import API from "./"
+// import API from "./"
 
-
-export const records = () => {
-  return API.get('http://localhost:3001/records')
-}
+// export const records = () => {
+//   return API.get('http://localhost:3001/records')
+// }
 

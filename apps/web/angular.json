@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "other.supply": "apps/other.supply",
+    "other.supply-e2e": "apps/other.supply-e2e"
+  }
+}

@@ -13,12 +13,12 @@ export class RecordsService {
     private recordsRepository: RecordsRepository
   ) { }
 
-  async getRecords(filterDto: GetRecordFilterDto): Promise<Record[]> {
-    return await this.recordsRepository.getRecords(filterDto);
+  async getRecords(filterDto?: GetRecordFilterDto): Promise<Record[]> {
+    return await this.recordsRepository.getRecords();
   }
 
-  async getRecord(id: string, user: User): Promise<Record> {
-    const record = await this.recordsRepository.findOne({id, user});
+  async getRecord(id: string): Promise<Record> {
+    const record = await this.recordsRepository.findOne({id});
     if (!record) throw new NotFoundException(`Record with id ${id} not found.`);
     return record;
   }
@@ -33,7 +33,7 @@ export class RecordsService {
   }
 
   async updateRecord(id: string, body: {}, user): Promise<Record> {
-    const record = await this.getRecord(id, user);
+    const record = await this.getRecord(id);
     const updatedRecord = { ...record, ...body };
     await this.recordsRepository.save(updatedRecord);
     return updatedRecord

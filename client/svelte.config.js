@@ -13,8 +13,11 @@ const config = {
 		vite: {
 			server: {
 				watch: {
-          usePolling: true,
-        },
+					usePolling: true,
+				},
+			},
+			optimizeDeps: {
+				exclude: ['svelte-apollo']
 			}
 		},
 	}

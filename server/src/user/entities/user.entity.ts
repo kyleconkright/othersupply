@@ -34,7 +34,7 @@ export class User {
   records: Record[];
 
   @Field((type) => Discogs)
-  @OneToOne((_type) => Discogs, (discogs) => discogs.user)
+  @OneToOne((_type) => Discogs, (discogs) => discogs.user, { cascade: true })
   @JoinColumn()
   discogs: Discogs | null;
 }

@@ -5,9 +5,11 @@ import { RecordResolver } from './record.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Record } from './entities/record.entity';
 import { HttpModule } from '@nestjs/axios';
+import { UserService } from 'src/user/user.service';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Record]), HttpModule],
+  imports: [TypeOrmModule.forFeature([Record]), UserModule, HttpModule],
   providers: [RecordResolver, RecordService, DiscogsService],
 })
 export class RecordModule {}

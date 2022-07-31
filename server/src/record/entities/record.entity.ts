@@ -16,7 +16,7 @@ export class Record {
   @Field((type) => ID)
   id: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, unique: true })
   @Field()
   discogs_id: string;
 
@@ -30,7 +30,7 @@ export class Record {
 
   @Column()
   @Field()
-  source: string;
+  source: 'discogs';
 
   @Column()
   @Field()
@@ -44,7 +44,10 @@ export class Record {
   @Field()
   price: number;
 
-  @ManyToMany((_type) => User, (user) => user.records, { eager: false })
+  @ManyToMany((_type) => User, (user) => user.records, {
+    eager: false,
+    cascade: ['update', 'insert'],
+  })
   @JoinTable()
   @Field((type) => [User])
   users: User[];

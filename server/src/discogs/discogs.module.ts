@@ -1,5 +1,4 @@
 import { DiscogsInterceptor } from './discogs.interceptor';
-import { DiscogsHttpConfigService } from './discogs-http-config.service';
 import { Module } from '@nestjs/common';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { DiscogsService } from './discogs.service';

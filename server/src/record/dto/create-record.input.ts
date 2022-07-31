@@ -6,7 +6,7 @@ export class CreateRecordInput {
   title: string;
 
   @Field()
-  source: string;
+  source: 'discogs';
 
   @Field()
   image_src: string;

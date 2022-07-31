@@ -16,23 +16,23 @@ import { Discogs } from 'src/discogs/entities/discog.entity';
   imports: [
     HttpModule,
     ConfigModule,
-    PassportModule.register({ defaultStrategy: 'jwt', session: true}),
+    PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.get("JWT_SECRET"),
+        secret: configService.get('JWT_SECRET'),
         signOptions: {
-            expiresIn: 3600,
-          }
-        })
+          expiresIn: '7days',
+        },
+      }),
     }),
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forFeature([Discogs]),
-    DiscogsModule
+    DiscogsModule,
   ],
   providers: [AuthService, JwtStrategy, DiscogsOAuthStrategy],
   controllers: [AuthController],
-  exports: [JwtStrategy, DiscogsOAuthStrategy, PassportModule]
+  exports: [JwtStrategy, DiscogsOAuthStrategy, PassportModule],
 })
 export class AuthModule {}

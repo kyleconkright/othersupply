@@ -34,6 +34,7 @@ export class RecordResolver {
         id: record.id,
         title: record.basic_information.title,
         artist: record.basic_information.artists[0].name,
+        image_src: record.basic_information.cover_image,
       })),
     );
     return record;
